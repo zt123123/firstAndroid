@@ -58,14 +58,14 @@ public class SplashActivity extends AppCompatActivity {
         tv_splash = findViewById(R.id.tv_splash);
 
         //设置字体
-        UtilTools.setFont(this,tv_splash);
+        UtilTools.setFont(this, tv_splash);
     }
 
     private boolean isFirst() {
-        Boolean isFirst = ShareUtils.getBoolean(this, StaticClass.SHARE_IS_FIRST);
+        Boolean isFirst = ShareUtils.getBoolean(this, StaticClass.SHARE_IS_FIRST, true);
         if (isFirst) {
             //设置为已经启动过APP
-            ShareUtils.putBoolean(this, StaticClass.SHARE_IS_FIRST);
+            ShareUtils.putBoolean(this, StaticClass.SHARE_IS_FIRST, false);
             return true;
         } else {
             return false;
@@ -75,6 +75,6 @@ public class SplashActivity extends AppCompatActivity {
     //禁止返回
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
+        //super.onBackPressed();
     }
 }

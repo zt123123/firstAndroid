@@ -1,5 +1,6 @@
 package com.nodeveloper.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -16,7 +17,6 @@ import com.nodeveloper.myapplication.fragment.GirlFragment;
 import com.nodeveloper.myapplication.fragment.UserFragment;
 import com.nodeveloper.myapplication.fragment.WechatFragment;
 import com.nodeveloper.myapplication.ui.SettingActivity;
-import com.nodeveloper.myapplication.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,32 +55,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFragment.add(new UserFragment());
     }
 
+    @SuppressLint("RestrictedApi")
     public void initView() {
-        mTabLayout = findViewById(R.id.mTabLayout);
-        mViewPager = findViewById(R.id.mViewPager);
-        fab_setting = findViewById(R.id.fab_setting);
+        mTabLayout = (TabLayout) findViewById(R.id.mTabLayout);
+        mViewPager = (ViewPager) findViewById(R.id.mViewPager);
+        fab_setting = (FloatingActionButton) findViewById(R.id.fab_setting);
 
-//        fab_setting.setVisibility(View.GONE);
+        fab_setting.setVisibility(View.GONE);
 
         fab_setting.setOnClickListener(this);
 
-//        预加载
+        //预加载
         mViewPager.setOffscreenPageLimit(mFragment.size());
 
-//        改变tab
+        //改变tab
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
 
             }
 
-            //            选中tab
+            //选中tab
             @Override
             public void onPageSelected(int i) {
                 if (i == 0) {
-//                    fab_setting.setVisibility(View.GONE);
+                    fab_setting.setVisibility(View.GONE);
                 } else {
-//                    fab_setting.setVisibility(View.VISIBLE);
+                    fab_setting.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -97,14 +98,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
 
-            //            总数
+            //总数
             @Override
             public int getCount() {
                 return mFragment.size();
             }
 
 
-            //            获取title
+            //获取title
             @Nullable
             @Override
             public CharSequence getPageTitle(int position) {
@@ -112,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-//        绑定
+        //绑定
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
