@@ -21,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
             super.handleMessage(msg);
             switch (msg.what) {
                 case StaticClass.HANDLER_SPLASH:
-//判断是否是第一次运行
+                    //判断是否是第一次运行
                     if (isFirst()) {
                         startActivity(new Intent(SplashActivity.this, GuideActivity.class));
                     } else {
@@ -51,7 +51,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void initView() {
-//延时2000ms
+        //延时2000ms
         handler.sendEmptyMessageDelayed(StaticClass.HANDLER_SPLASH, 2000);
         tv_splash = findViewById(R.id.tv_splash);
     }

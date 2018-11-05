@@ -8,6 +8,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //去掉阴影
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
