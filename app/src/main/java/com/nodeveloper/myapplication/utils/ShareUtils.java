@@ -8,7 +8,7 @@ public class ShareUtils {
 
     public static void putString(Context context, String key, String value) {
         SharedPreferences sp = context.getSharedPreferences(NAME, Context.MODE_PRIVATE);
-        sp.edit().putString(key, value);
+        sp.edit().putString(key, value).commit();
     }
 
     public static String getString(Context context, String key, String defValue) {
@@ -18,7 +18,7 @@ public class ShareUtils {
 
     public static void putInt(Context context, String key, int value) {
         SharedPreferences sp = context.getSharedPreferences(NAME, Context.MODE_PRIVATE);
-        sp.edit().putInt(key, value);
+        sp.edit().putInt(key, value).commit();
     }
 
     public static int getInt(Context context, String key, int defValue) {
@@ -28,7 +28,7 @@ public class ShareUtils {
 
     public static void putBoolean(Context context, String key, Boolean value) {
         SharedPreferences sp = context.getSharedPreferences(NAME, Context.MODE_PRIVATE);
-        sp.edit().putBoolean(key, value);
+        sp.edit().putBoolean(key, value).commit();
     }
 
     public static boolean getBoolean(Context context, String key, Boolean defValue) {

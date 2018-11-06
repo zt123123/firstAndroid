@@ -7,8 +7,8 @@ import android.util.Log;
  */
 
 public class L {
-    public static final boolean DEBUG = true;
-    public static final String TAG = "SmartButler";
+    private static final boolean DEBUG = true;
+    private static final String TAG = "SmartButler";
 
     //debug
     public static void d(String text) {

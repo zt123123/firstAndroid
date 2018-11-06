@@ -1,7 +1,7 @@
 package com.nodeveloper.myapplication.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,14 +9,13 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.nodeveloper.myapplication.MainActivity;
 import com.nodeveloper.myapplication.R;
 import com.nodeveloper.myapplication.utils.ShareUtils;
 import com.nodeveloper.myapplication.utils.StaticClass;
 import com.nodeveloper.myapplication.utils.UtilTools;
 
 public class SplashActivity extends AppCompatActivity {
-    private TextView tv_splash;
+    @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -27,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
                     if (isFirst()) {
                         startActivity(new Intent(SplashActivity.this, GuideActivity.class));
                     } else {
-                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                     }
                     finish();
                     break;
@@ -40,11 +39,11 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        /**
-         * 延时2000ms
-         * 判断是否第一次运行
-         * 自定义字体
-         * Activity全屏主题
+        /*
+          延时2000ms
+          判断是否第一次运行
+          自定义字体
+          Activity全屏主题
          */
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
@@ -55,7 +54,7 @@ public class SplashActivity extends AppCompatActivity {
     public void initView() {
         //延时2000ms
         handler.sendEmptyMessageDelayed(StaticClass.HANDLER_SPLASH, 2000);
-        tv_splash = findViewById(R.id.tv_splash);
+        TextView tv_splash = findViewById(R.id.tv_splash);
 
         //设置字体
         UtilTools.setFont(this, tv_splash);

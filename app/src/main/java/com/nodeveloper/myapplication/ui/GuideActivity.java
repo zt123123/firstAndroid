@@ -11,16 +11,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.nodeveloper.myapplication.R;
+import com.nodeveloper.myapplication.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GuideActivity extends AppCompatActivity {
-    private ViewPager viewPager;
 
     private List<View> mList = new ArrayList<>();
-
-    private View view1, view2, view3;
 
     private ImageView point1, point2, point3;
 
@@ -33,10 +31,10 @@ public class GuideActivity extends AppCompatActivity {
 
 
     public void initView() {
-        viewPager = findViewById(R.id.mViewPager);
-        view1 = View.inflate(this, R.layout.pager_item_one, null);
-        view2 = View.inflate(this, R.layout.pager_item_two, null);
-        view3 = View.inflate(this, R.layout.pager_item_three, null);
+        ViewPager viewPager = findViewById(R.id.mViewPager);
+        View view1 = View.inflate(this, R.layout.pager_item_one, null);
+        View view2 = View.inflate(this, R.layout.pager_item_two, null);
+        View view3 = View.inflate(this, R.layout.pager_item_three, null);
 
         point1 = findViewById(R.id.point1);
         point2 = findViewById(R.id.point2);
@@ -55,11 +53,12 @@ public class GuideActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
-
+                L.i(String.valueOf(i));
             }
 
             @Override
             public void onPageSelected(int i) {
+                L.i(String.valueOf(i));
                 switch (i) {
                     case 0:
                         setPointImg(true, false, false);
@@ -114,13 +113,13 @@ public class GuideActivity extends AppCompatActivity {
         @NonNull
         @Override
         public Object instantiateItem(@NonNull ViewGroup container, int position) {
-            ((ViewPager) container).addView(mList.get(position));
+            container.addView(mList.get(position));
             return mList.get(position);
         }
 
         @Override
         public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-            ((ViewPager) container).addView(mList.get(position));
+            container.removeView(mList.get(position));
         }
     }
 }
