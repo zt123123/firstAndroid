@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:id="@+id/keep_pass"
-            android:text="忘记密码"
+            android:text="记住密码"
             android:textColor="@color/colorAccent" />
 
     </LinearLayout>
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginTop="10dp"
-        android:text="记住密码"
+        android:text="忘记密码"
         android:textColor="@color/colorAccent" />
 
 </LinearLayout>
