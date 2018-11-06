@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nodeveloper.myapplication.R;
@@ -37,7 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btn_login:
                 break;
             case R.id.btn_reg:
-                startActivity(new Intent(this, RelativeLayout.class));
+                startActivity(new Intent(RegisterActivity.this, RegisterActivity.class));
                 break;
             case R.id.tv_forgetpwd:
                 break;

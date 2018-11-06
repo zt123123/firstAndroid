@@ -53,7 +53,9 @@
         <!--引导页-->
         <activity android:name=".ui.GuideActivity" />
         <!--注册-->
-        <activity android:name=".ui.LoginActivity" />
+        <activity android:label="注册" android:name=".ui.RegisterActivity" />
+        <!--登陆-->
+        <activity android:label="登陆" android:name=".ui.LoginActivity" />
 
     </application>
 

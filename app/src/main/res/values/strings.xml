@@ -13,4 +13,13 @@
     <string name="password">密码</string>
     <string name="login">登陆</string>
     <string name="register">注册</string>
+    <string name="age">请输入年龄</string>
+    <string name="desc">请输入简介</string>
+    <string name="gender_female">女</string>
+    <string name="gender_male">男</string>
+    <string name="hold_pwd">请输入密码</string>
+    <string name="hold_email">请输入邮箱</string>
+    <string name="hold_repwd">请重复密码</string>
+    <string name="hold_username">请输入用户名</string>
+    <string name="regok_tip">注册成功需要前往邮箱验证，否则无法登陆</string>
 </resources>

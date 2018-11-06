@@ -2,9 +2,15 @@
   <dictionary name="Administrator">
     <words>
       <w>appid</w>
+      <w>autofill</w>
       <w>bmob</w>
       <w>bugly</w>
       <w>forgetpwd</w>
+      <w>nodeveloper</w>
+      <w>regok</w>
+      <w>repass</w>
+      <w>repwd</w>
+      <w>wcdma</w>
       <w>wechat</w>
     </words>
   </dictionary>

@@ -11,8 +11,8 @@
         android:id="@+id/et_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints="@string/hold_username"
-        android:hint="@string/hold_username"
+        android:autofillHints="请输入用户名"
+        android:hint="@string/username"
         android:inputType="text"
         tools:ignore="UnusedAttribute" />
 
@@ -22,8 +22,7 @@
         android:layout_height="wrap_content"
         android:autofillHints="请输入年龄"
         android:hint="@string/age"
-        android:inputType="number"
-        tools:ignore="UnusedAttribute" />
+        android:inputType="number" />
 
 
     <EditText
@@ -31,25 +30,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/desc"
-        android:inputType="text"
-        tools:ignore="Autofill" />
+        android:inputType="text" />
 
     <RadioGroup
-        android:id="@+id/rg_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         tools:ignore="RtlHardcoded">
 
         <RadioButton
-            android:id="@+id/gender_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/gender_male" />
 
         <RadioButton
-            android:id="@+id/gender_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -91,16 +86,25 @@
         android:orientation="vertical"
         tools:ignore="RtlHardcoded">
 
-        <TextView
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/regok_tip"
+            android:layout_gravity="right"
+            android:text="记住密码"
             android:textColor="@color/colorAccent" />
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_bg"
+        android:text="@string/login"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btn_reg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -108,4 +112,21 @@
         android:text="@string/register"
         android:textColor="@android:color/white" />
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_forgetpwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            android:text="记住密码"
+            android:textColor="@color/colorAccent" />
+
+    </LinearLayout>
 </LinearLayout>
