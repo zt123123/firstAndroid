@@ -17,14 +17,14 @@ import com.nodeveloper.myapplication.fragment.GirlFragment;
 import com.nodeveloper.myapplication.fragment.UserFragment;
 import com.nodeveloper.myapplication.fragment.WechatFragment;
 import com.nodeveloper.myapplication.ui.SettingActivity;
+import com.nodeveloper.myapplication.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TabLayout mTabLayout;
-    private ViewPager mViewPager;
     private List<String> mTitle;
     private List<Fragment> mFragment;
     private FloatingActionButton fab_setting;
@@ -34,10 +34,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setElevation(0);
+        Objects.requireNonNull(getSupportActionBar()).setElevation(0);
 
         initData();
         initView();
+
+        L.w("start");
 
     }
 
@@ -57,9 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @SuppressLint("RestrictedApi")
     public void initView() {
-        mTabLayout = (TabLayout) findViewById(R.id.mTabLayout);
-        mViewPager = (ViewPager) findViewById(R.id.mViewPager);
-        fab_setting = (FloatingActionButton) findViewById(R.id.fab_setting);
+        TabLayout mTabLayout = findViewById(R.id.mTabLayout);
+        ViewPager mViewPager = findViewById(R.id.mViewPager);
+        fab_setting = findViewById(R.id.fab_setting);
 
         fab_setting.setVisibility(View.GONE);
 

@@ -1,5 +1,6 @@
 package com.nodeveloper.myapplication.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,7 +13,7 @@ import com.nodeveloper.myapplication.R;
 
 public class UserFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_user, null);
+        @SuppressLint("InflateParams") View view = inflater.inflate(R.layout.fragment_user, null);
         return view;
     }
 }

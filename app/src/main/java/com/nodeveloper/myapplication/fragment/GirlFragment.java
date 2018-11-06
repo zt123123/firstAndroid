@@ -1,5 +1,6 @@
 package com.nodeveloper.myapplication.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,7 +15,7 @@ public class GirlFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_girl, null);
+        @SuppressLint("InflateParams") View view = inflater.inflate(R.layout.fragment_girl, null);
         return view;
     }
 }
