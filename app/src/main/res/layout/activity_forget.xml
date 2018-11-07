@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update_pass"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/old_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="旧密码"
+        tools:ignore="Autofill,HardcodedText"
+        android:inputType="textWebPassword" />
+
+    <EditText
+        android:id="@+id/new_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="新密码"
+        tools:ignore="Autofill,HardcodedText"
+        android:inputType="textWebPassword" />
+
+    <EditText
+        android:id="@+id/new_repass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="再次输入密码"
+        tools:ignore="Autofill,HardcodedText"
+        android:inputType="textWebPassword" />
+
+    <Button
+        android:id="@+id/btn_update_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_bg"
+        android:text="@string/update_pass_btn"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forget_pass"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/et_forget_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="邮箱"
+        tools:ignore="Autofill,HardcodedText"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:id="@+id/btn_update_forget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_bg"
+        android:text="@string/forget_pass_btn"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>

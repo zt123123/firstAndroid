@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,10 +15,10 @@ import android.widget.Toast;
 import com.nodeveloper.myapplication.MainActivity;
 import com.nodeveloper.myapplication.R;
 import com.nodeveloper.myapplication.entity.MyUser;
-import com.nodeveloper.myapplication.utils.L;
 import com.nodeveloper.myapplication.utils.ShareUtils;
 import com.nodeveloper.myapplication.utils.StaticClass;
 import com.nodeveloper.myapplication.utils.TextUtils;
+import com.nodeveloper.myapplication.view.CustomDialog;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -26,6 +27,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText et_uname;
     private EditText et_upass;
     private CheckBox keep_pass;
+
+    private CustomDialog dialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,6 +61,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Button btnReg = findViewById(R.id.btn_regs);
         TextView tvForgetpwd = findViewById(R.id.tv_forgetpwd);
 
+        dialog = new CustomDialog(
+                this,
+                500,
+                500,
+                R.layout.dialog_loading,
+                R.style.Theme_dialog,
+                Gravity.CENTER,
+                R.style.pop_anim_style
+        );
+
+        //点击屏幕以外无效
+        dialog.setCancelable(false);
+
         btnLogin.setOnClickListener(this);
         btnReg.setOnClickListener(this);
         tvForgetpwd.setOnClickListener(this);
@@ -81,12 +97,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String pass = et_upass.getText().toString().trim();
 
                 if (!TextUtils.isEmpty(name) & !TextUtils.isEmpty(pass)) {
+                    dialog.show();
+
+                    //登陆
                     final MyUser user = new MyUser();
                     user.setUsername(name);
                     user.setPassword(pass);
                     user.login(new SaveListener<MyUser>() {
                         @Override
                         public void done(MyUser myUser, BmobException e) {
+                            dialog.dismiss();
+                            //判断结果
                             if (e == null) {
                                 //判断邮箱
                                 if (user.getEmailVerified()) {
@@ -110,6 +131,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
                 break;
             case R.id.tv_forgetpwd:
+                startActivity(new Intent(LoginActivity.this, ForgetPassActivity.class));
                 break;
         }
     }
