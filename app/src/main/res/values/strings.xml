@@ -27,4 +27,13 @@
     <string name="forget_pass">忘记密码</string>
     <string name="update_pass_btn">修改密码</string>
     <string name="forget_pass_btn">忘记密码</string>
+    <string name="confirm_update_btn">确定修改</string>
+    <string name="user_logout">退出登录</string>
+    <string name="flow_query">物流查询</string>
+    <string name="user_name">姓名</string>
+    <string name="user_desc">简介</string>
+    <string name="user_age">年龄</string>
+    <string name="edit_user_info">编辑资料</string>
+    <string name="user_sex">性别</string>
+    <string name="belong_query">归属地查询</string>
 </resources>
