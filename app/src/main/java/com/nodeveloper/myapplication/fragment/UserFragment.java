@@ -3,8 +3,6 @@ package com.nodeveloper.myapplication.fragment;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -13,7 +11,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,8 +21,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kymjs.rxvolley.RxVolley;
+import com.kymjs.rxvolley.client.HttpCallback;
+import com.nodeveloper.myapplication.MainActivity;
 import com.nodeveloper.myapplication.R;
 import com.nodeveloper.myapplication.entity.MyUser;
+import com.nodeveloper.myapplication.ui.CourierActivity;
 import com.nodeveloper.myapplication.ui.LoginActivity;
 import com.nodeveloper.myapplication.utils.L;
 import com.nodeveloper.myapplication.utils.ShareUtils;
@@ -47,7 +48,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
     private CircleImageView profile_image;
 
-    private TextView et_user_info;
+    private TextView et_user_info, express_query, belong_query;
 
     private CustomDialog dialog;
 
@@ -92,9 +93,13 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
         et_user_info = view.findViewById(R.id.et_user_info);
 
+        express_query = view.findViewById(R.id.express_query_btn);
+        belong_query = view.findViewById(R.id.belong_query_btn);
+
         btn_camera = dialog.findViewById(R.id.btn_camera);
         btn_picture = dialog.findViewById(R.id.btn_picture);
         btn_cancel = dialog.findViewById(R.id.btn_cancel);
+
 
         btn_logout.setOnClickListener(this);
         confirm__update_btn.setOnClickListener(this);
@@ -104,6 +109,9 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         btn_camera.setOnClickListener(this);
         btn_picture.setOnClickListener(this);
         btn_cancel.setOnClickListener(this);
+
+        express_query.setOnClickListener(this);
+        belong_query.setOnClickListener(this);
 
         //读取图片
         UtilTools.getImageFromShare(getActivity(), profile_image);
@@ -187,6 +195,13 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.btn_cancel:
                 dialog.dismiss();
+                break;
+            case R.id.express_query_btn:
+                System.out.print(getActivity());
+                startActivity(new Intent(getActivity(), CourierActivity.class));
+                break;
+            case R.id.belong_query_btn:
+//                startActivity(new Intent(getActivity(),CourierActivity.class));
                 break;
         }
     }
@@ -281,4 +296,6 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         //保存图片
         UtilTools.putImageToShare(getActivity(), profile_image);
     }
+
+
 }

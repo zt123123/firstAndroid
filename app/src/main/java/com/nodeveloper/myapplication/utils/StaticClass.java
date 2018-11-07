@@ -19,5 +19,9 @@ public class StaticClass {
     public static final String USER_PASS = "upass";
     //头像
     public static final String IMAGE_TITLE = "image_avatar";
+    //聚合API key
+    private static final String JUHE_KEY = "a4e6952c07acfef5ed60aeec59629c46";
+    //快递API URL
+    public static final String EXPRESS_QUERY_URL = "http://v.juhe.cn/exp/index?key=" + JUHE_KEY;
 
 }
