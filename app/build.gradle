@@ -37,4 +37,7 @@ dependencies {
 
     //Bmob
     implementation 'cn.bmob.android:bmob-sdk:3.6.3'
+
+    //circleimageview
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 }

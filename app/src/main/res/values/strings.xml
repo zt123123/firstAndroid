@@ -36,4 +36,7 @@
     <string name="edit_user_info">编辑资料</string>
     <string name="user_sex">性别</string>
     <string name="belong_query">归属地查询</string>
+    <string name="take_photo">拍照</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_picture">图库</string>
 </resources>

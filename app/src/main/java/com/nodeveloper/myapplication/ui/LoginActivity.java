@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -19,6 +20,8 @@ import com.nodeveloper.myapplication.utils.ShareUtils;
 import com.nodeveloper.myapplication.utils.StaticClass;
 import com.nodeveloper.myapplication.utils.TextUtils;
 import com.nodeveloper.myapplication.view.CustomDialog;
+
+import java.io.File;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -63,8 +66,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         dialog = new CustomDialog(
                 this,
-                500,
-                500,
+                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
                 R.layout.dialog_loading,
                 R.style.Theme_dialog,
                 Gravity.CENTER,
@@ -133,6 +136,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.tv_forgetpwd:
                 startActivity(new Intent(LoginActivity.this, ForgetPassActivity.class));
                 break;
+
         }
     }
+
+
 }
