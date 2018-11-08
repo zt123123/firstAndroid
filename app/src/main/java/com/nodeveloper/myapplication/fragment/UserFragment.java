@@ -121,11 +121,13 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
         //设置默认值
         MyUser userInfo = BmobUser.getCurrentUser(MyUser.class);
+        if (userInfo != null) {
+            user_update_sex.setText(userInfo.isSex() ? "男" : "女");
+            user_update_age.setText(userInfo.getAge() + "");
+            user_update_desc.setText(userInfo.getDesc());
+            user_update_name.setText(userInfo.getUsername());
+        }
 
-        user_update_sex.setText(userInfo.isSex() ? "男" : "女");
-        user_update_age.setText(userInfo.getAge() + "");
-        user_update_desc.setText(userInfo.getDesc());
-        user_update_name.setText(userInfo.getUsername());
     }
 
     public void setEnable(boolean is) {

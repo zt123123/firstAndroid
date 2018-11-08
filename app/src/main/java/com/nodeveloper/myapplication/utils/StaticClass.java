@@ -19,9 +19,21 @@ public class StaticClass {
     public static final String USER_PASS = "upass";
     //头像
     public static final String IMAGE_TITLE = "image_avatar";
-    //聚合API key
-    private static final String JUHE_KEY = "a4e6952c07acfef5ed60aeec59629c46";
-    //快递API URL
-    public static final String EXPRESS_QUERY_URL = "http://v.juhe.cn/exp/index?key=" + JUHE_KEY;
 
+    //快递key
+    private static final String JUHE_EXPRESS_KEY = "a4e6952c07acfef5ed60aeec59629c46";
+    //归属地key
+    private static final String JUHE_BELONG_KEY = "a4e6952c07acfef5ed60aeec59629c46";
+    //微信精选key
+    private static final String JUHE_WECHAT_KEY = "a4e6952c07acfef5ed60aeec59629c46";
+
+    //快递100 API
+    public static final String EXPRESS100_QUERY_URL = "http://www.kuaidi100.com/query";
+
+    //快递API URL
+    public static final String EXPRESS_QUERY_URL = "http://v.juhe.cn/exp/index?key=" + JUHE_EXPRESS_KEY;
+    //归属地API URL
+    public static final String BELONG_QUERY_URL = "http://apis.juhe.cn/mobile/get?key=" + JUHE_BELONG_KEY;
+    //微信精选API URL
+    public static final String WECHAT = "http://v.juhe.cn/weixin/query?key=" + JUHE_WECHAT_KEY;
 }

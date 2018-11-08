@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import com.nodeveloper.myapplication.MainActivity;
 import com.nodeveloper.myapplication.R;
 import com.nodeveloper.myapplication.utils.ShareUtils;
 import com.nodeveloper.myapplication.utils.StaticClass;
@@ -26,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
                     if (isFirst()) {
                         startActivity(new Intent(SplashActivity.this, GuideActivity.class));
                     } else {
-                        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                        startActivity(new Intent(SplashActivity.this, MainActivity.class));
                     }
                     finish();
                     break;
