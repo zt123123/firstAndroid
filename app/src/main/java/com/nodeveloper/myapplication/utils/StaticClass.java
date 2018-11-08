@@ -23,7 +23,7 @@ public class StaticClass {
     //快递key
     private static final String JUHE_EXPRESS_KEY = "a4e6952c07acfef5ed60aeec59629c46";
     //归属地key
-    private static final String JUHE_BELONG_KEY = "a4e6952c07acfef5ed60aeec59629c46";
+    private static final String JUHE_BELONG_KEY = "0119af526758e4fce0d5c71968e98806";
     //微信精选key
     private static final String JUHE_WECHAT_KEY = "a4e6952c07acfef5ed60aeec59629c46";
 

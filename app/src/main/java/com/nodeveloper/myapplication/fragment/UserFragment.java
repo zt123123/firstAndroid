@@ -28,6 +28,7 @@ import com.nodeveloper.myapplication.R;
 import com.nodeveloper.myapplication.entity.MyUser;
 import com.nodeveloper.myapplication.ui.CourierActivity;
 import com.nodeveloper.myapplication.ui.LoginActivity;
+import com.nodeveloper.myapplication.ui.PhoneActivity;
 import com.nodeveloper.myapplication.utils.L;
 import com.nodeveloper.myapplication.utils.ShareUtils;
 import com.nodeveloper.myapplication.utils.StaticClass;
@@ -203,7 +204,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), CourierActivity.class));
                 break;
             case R.id.belong_query_btn:
-//                startActivity(new Intent(getActivity(),CourierActivity.class));
+                startActivity(new Intent(getActivity(),PhoneActivity.class));
                 break;
         }
     }
