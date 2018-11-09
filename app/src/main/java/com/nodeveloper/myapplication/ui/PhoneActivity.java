@@ -120,7 +120,6 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
             RxVolley.get(url, new HttpCallback() {
                 @Override
                 public void onSuccess(String t) {
-                    Toast.makeText(PhoneActivity.this, t, Toast.LENGTH_SHORT).show();
                     //解析json
                     parseJSON(t);
                 }
@@ -149,12 +148,13 @@ public class PhoneActivity extends BaseActivity implements View.OnClickListener 
             String company = jsonResult.getString("company");
             String card = jsonResult.getString("card");
 
-            query_result.append("归属地:" + province + city + "\n");
-            query_result.append("区号:" + areacode + "\n");
-            query_result.append("邮编:" + zip + "\n");
-            query_result.append("运营商:" + company + "\n");
-            query_result.append("类型:" + card + "\n");
-
+            query_result.setText(
+                    "归属地:" + province + city + "\n" +
+                            "区号:" + areacode + "\n" +
+                            "邮编:" + zip + "\n" +
+                            "运营商:" + company + "\n" +
+                            "类型:" + card + "\n"
+            );
             switch (company) {
                 case "移动":
                     business_pic.setBackgroundResource(R.drawable.icon_mobile);
