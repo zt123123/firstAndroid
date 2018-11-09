@@ -50,7 +50,9 @@
         <!--主页-->
         <activity android:name=".MainActivity" />
         <!--引导页-->
-        <activity android:name=".ui.GuideActivity" />
+        <activity
+            android:name=".ui.GuideActivity"
+            android:theme="@style/NoActivityFullScreen" />
         <!--注册-->
         <activity
             android:name=".ui.RegisterActivity"
@@ -71,6 +73,8 @@
         <activity
             android:name=".ui.PhoneActivity"
             android:label="归属地查询" />
+        <!--微信精选WebView-->
+        <activity android:name=".ui.WebViewActivity" />
     </application>
 
 </manifest>

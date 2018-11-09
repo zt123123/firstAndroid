@@ -1,6 +1,7 @@
 package com.nodeveloper.myapplication.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.nodeveloper.myapplication.adapter.WeChatAdapter;
 import com.nodeveloper.myapplication.entity.CourierData;
 import com.nodeveloper.myapplication.entity.WeChatData;
 import com.nodeveloper.myapplication.ui.CourierActivity;
+import com.nodeveloper.myapplication.ui.WebViewActivity;
 import com.nodeveloper.myapplication.utils.L;
 import com.nodeveloper.myapplication.utils.StaticClass;
 
@@ -35,6 +38,9 @@ public class WechatFragment extends Fragment {
 
     private List<WeChatData> mList = new ArrayList<>();
 
+    private List<String> listTitle = new ArrayList<>();
+    private List<String> listUrl = new ArrayList<>();
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         @SuppressLint("InflateParams") View view = inflater.inflate(R.layout.fragment_wechat, null);
@@ -45,6 +51,20 @@ public class WechatFragment extends Fragment {
     private void initView(View view) {
         wechat_listview = view.findViewById(R.id.wechat_listview);
         getData();
+
+        wechat_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String title = listTitle.get(i);
+                String url = listUrl.get(i);
+
+                Intent intent = new Intent(getActivity(), WebViewActivity.class);
+                intent.putExtra("title", title);
+                intent.putExtra("url", url);
+
+                startActivity(intent);
+            }
+        });
     }
 
     public void getData() {
@@ -75,12 +95,17 @@ public class WechatFragment extends Fragment {
             for (int i = 0; i < jsonList.length(); i++) {
                 JSONObject json = (JSONObject) jsonList.get(i);
                 WeChatData weChatData = new WeChatData();
+                String title = json.getString("title");
+                String url = json.getString("url");
 
-                weChatData.setTitle(json.getString("title"));
+                weChatData.setTitle(title);
                 weChatData.setSource(json.getString("source"));
                 weChatData.setImgUrl(json.getString("firstImg"));
 
                 mList.add(weChatData);
+
+                listTitle.add(title);
+                listUrl.add(url);
             }
 
 
