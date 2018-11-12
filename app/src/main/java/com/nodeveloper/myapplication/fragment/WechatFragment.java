@@ -74,7 +74,7 @@ public class WechatFragment extends Fragment {
             @Override
             public void onSuccess(String t) {
                 //解析json
-                L.w(t);
+//                L.w(t);
                 parseJSON(t);
             }
 

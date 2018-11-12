@@ -36,4 +36,6 @@ public class StaticClass {
     public static final String BELONG_QUERY_URL = "http://apis.juhe.cn/mobile/get?key=" + JUHE_BELONG_KEY;
     //微信精选API URL
     public static final String WECHAT_ARTICLE_URL = "http://v.juhe.cn/weixin/query?key=" + JUHE_WECHAT_KEY;
+    //妹子接口
+    public static final String GIRL_URL = "https://gank.io/api/data/%E7%A6%8F%E5%88%A9/10/1";
 }
