@@ -42,7 +42,7 @@ public class CourierAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
-        if (viewHolder == null) {
+        if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = inflater.inflate(R.layout.layout_courier_item, null);
             viewHolder.express_remark = convertView.findViewById(R.id.express_remark);

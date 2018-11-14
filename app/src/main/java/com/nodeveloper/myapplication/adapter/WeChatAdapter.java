@@ -52,7 +52,7 @@ public class WeChatAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
-        if (viewHolder == null) {
+        if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = inflater.inflate(R.layout.wechat_item, null);
             viewHolder.wechat_title = convertView.findViewById(R.id.wechat_title);

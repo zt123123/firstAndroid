@@ -45,7 +45,7 @@ public class GridAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
-        if (viewHolder == null) {
+        if (convertView == null) {
             viewHolder = new ViewHolder();
 
             convertView = inflater.inflate(R.layout.girl_item, null);
