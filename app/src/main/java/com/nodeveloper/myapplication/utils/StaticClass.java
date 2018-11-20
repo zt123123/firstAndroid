@@ -38,4 +38,8 @@ public class StaticClass {
     public static final String WECHAT_ARTICLE_URL = "http://v.juhe.cn/weixin/query?key=" + JUHE_WECHAT_KEY;
     //妹子接口
     public static final String GIRL_URL = "https://gank.io/api/data/%E7%A6%8F%E5%88%A9/50/1";
+    //图灵机器人key
+    public static final String TULING_KEY = "741ee46f9630aa9f7a996ed9f603fd66";
+    //图灵机器人url
+    public static final String TULING_URL = "741ee46f9630aa9f7a996ed9f603fd66";
 }
