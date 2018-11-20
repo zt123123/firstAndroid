@@ -4,12 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.nodeveloper.myapplication.R;
 import com.nodeveloper.myapplication.entity.GridData;
+import com.nodeveloper.myapplication.utils.PicassoUtil;
 
 import java.util.List;
 
@@ -18,11 +20,14 @@ public class GridAdapter extends BaseAdapter {
     private List<GridData> mList;
     private GridData data;
     private LayoutInflater inflater;
+    private int width;
+    private WindowManager wm;
 
     public GridAdapter(Context mContext, List<GridData> mList) {
         this.mContext = mContext;
         this.mList = mList;
-
+        wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+        width = wm.getDefaultDisplay().getWidth();
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
@@ -56,7 +61,8 @@ public class GridAdapter extends BaseAdapter {
         }
 
         data = mList.get(position);
-        viewHolder.imageView.setBackgroundResource(R.mipmap.ic_launcher);
+        PicassoUtil.loadImageViewSize(mList.get(position).getImgUrl(), width / 2, 500, viewHolder.imageView);
+//        viewHolder.imageView.setBackgroundResource(R.mipmap.ic_launcher);
 
         return convertView;
     }

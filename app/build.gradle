@@ -53,4 +53,6 @@ dependencies {
     implementation ('com.squareup.picasso:picasso:2.71828'){
         exclude group: "com.squareup.okio"
     }
+    //PhotoView
+    implementation 'com.github.chrisbanes:PhotoView:2.1.4'
 }

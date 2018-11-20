@@ -5,13 +5,18 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.github.chrisbanes.photoview.PhotoView;
+import com.github.chrisbanes.photoview.PhotoViewAttacher;
 import com.kymjs.rxvolley.RxVolley;
 import com.kymjs.rxvolley.client.HttpCallback;
 import com.nodeveloper.myapplication.R;
@@ -20,7 +25,9 @@ import com.nodeveloper.myapplication.adapter.WeChatAdapter;
 import com.nodeveloper.myapplication.entity.GridData;
 import com.nodeveloper.myapplication.entity.WeChatData;
 import com.nodeveloper.myapplication.utils.L;
+import com.nodeveloper.myapplication.utils.PicassoUtil;
 import com.nodeveloper.myapplication.utils.StaticClass;
+import com.nodeveloper.myapplication.view.CustomDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,6 +40,10 @@ public class GirlFragment extends Fragment {
     private GridView mGridView;
     private List<GridData> mList = new ArrayList<>();
     private GridAdapter adapter;
+    private CustomDialog customDialog;
+    private ImageView imageView;
+    private List<String> mListUrl = new ArrayList<>();
+    private PhotoViewAttacher photoViewAttacher;
 
     @Nullable
     @Override
@@ -44,13 +55,20 @@ public class GirlFragment extends Fragment {
 
     private void initView(View view) {
         mGridView = view.findViewById(R.id.mGridView);
+        customDialog = new CustomDialog(getActivity(), LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, R.layout.dialog_girl, R.style.Theme_dialog, Gravity.CENTER,R.style.pop_anim_style);
+        imageView = customDialog.findViewById(R.id.iv_img);
 
         getData();
 
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                PicassoUtil.loadImageView(mListUrl.get(position),imageView);
+                photoViewAttacher = new PhotoViewAttacher(imageView);
+                //刷新
+                photoViewAttacher.update();
+                //显示你dialog
+                customDialog.show();
             }
         });
 
@@ -83,6 +101,8 @@ public class GirlFragment extends Fragment {
                 JSONObject json = (JSONObject) jsonList.get(i);
 
                 String url = json.getString("url");
+
+                mListUrl.add(url);
 
                 GridData data = new GridData();
                 data.setImgUrl(url);
