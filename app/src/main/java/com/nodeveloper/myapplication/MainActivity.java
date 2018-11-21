@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.nodeveloper.myapplication.fragment.ButlerFragment;
 import com.nodeveloper.myapplication.fragment.GirlFragment;
+import com.nodeveloper.myapplication.fragment.NewsFragment;
 import com.nodeveloper.myapplication.fragment.UserFragment;
 import com.nodeveloper.myapplication.fragment.WechatFragment;
 import com.nodeveloper.myapplication.ui.SettingActivity;
@@ -44,13 +45,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void initData() {
         mTitle = new ArrayList<>();
         mTitle.add("服务管家");
-        mTitle.add("微信精选");
+        mTitle.add("今日头条");
         mTitle.add("美女社区");
         mTitle.add("个人中心");
 
         mFragment = new ArrayList<>();
         mFragment.add(new ButlerFragment());
-        mFragment.add(new WechatFragment());
+//        mFragment.add(new WechatFragment());
+        mFragment.add(new NewsFragment());
         mFragment.add(new GirlFragment());
         mFragment.add(new UserFragment());
     }

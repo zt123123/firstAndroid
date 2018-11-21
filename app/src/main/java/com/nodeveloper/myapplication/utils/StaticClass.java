@@ -42,4 +42,8 @@ public class StaticClass {
     public static final String TULING_KEY = "741ee46f9630aa9f7a996ed9f603fd66";
     //图灵机器人url
     public static final String TULING_URL = "741ee46f9630aa9f7a996ed9f603fd66";
+    //今日头条Key
+    public static final String NEWS_KEY = "c06e200b75ae578fdc160b5d93bf9de5";
+    //今日头条
+    public static final String NEWS_URL = "http://v.juhe.cn/toutiao/index?type=top&key="+NEWS_KEY;
 }
